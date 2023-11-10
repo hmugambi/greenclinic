@@ -1,5 +1,21 @@
-# CodeIgniter 4 Application Starter
+# Green Clinic
+The following application has been implemented using CodeIgniter4, following the assignment requirements.
 
+## Setup
+To run the application, 
+
+1. Do install XAMP (https://www.apachefriends.org/download.html) or any other apache based server.
+2. If you choose to use XAMP configure the application to work as per the given details on the read me for XAMP found the installtion root directory.
+3. Do pull the repository to the 'xampp\htdocs' folder.
+4. Install mysql database as well, or configure one that came with the XAMP.
+5. Do run the scripts on this reporitory named 'database_script.txt'.
+6. Configure the database details to the file name .env database section. Do replace the details accordingly.
+7. Once all the configuration have been finalised. Do login using with default username/password as admin/admin.
+8. After successful login, do navigate according as per the description on the assigniment.
+
+
+
+Below details pertain to CodeIgniter
 ## What is CodeIgniter?
 
 CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.

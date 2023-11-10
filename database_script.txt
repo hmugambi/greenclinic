@@ -1,0 +1,79 @@
+Create database myClinic;
+
+use myClinic;
+
+create table tbl_logins (
+	id int primary key AUTO_INCREMENT,
+	user_name varchar(255) NOT NULL,
+	password varchar(255) NOT NULL,
+	user_id int, 
+	active int,
+	logged_in int,
+	lastLogin datetime,
+	created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	UNIQUE (user_name)
+);
+
+
+create table tbl_userRoles(
+	role_id int ,
+	user_id int
+);
+
+
+create table  tbl_roles(
+	id int primary key AUTO_INCREMENT, 
+	name varchar(255) 
+	);
+
+create table tbl_users(
+	id int primary key AUTO_INCREMENT, 
+	name varchar(255),
+	email varchar(50),
+	phone varchar(20),
+	is_doctor int,
+	specialisation varchar(255)
+);
+
+create table tbl_patient_information(
+	id int primary key AUTO_INCREMENT,
+	first_name varchar(255),
+	middle_name varchar(255),
+	last_name varchar(255),
+	date_of_birth datetime,
+	phone_no varchar(20),
+	email varchar(50)
+);
+ 
+create table tbl_appointment(
+	id int primary key AUTO_INCREMENT,
+	appointment_date_time datetime,
+	booked_by int,
+	patient_id int,
+	doctor_id int,
+	status int,
+	doctor_notes varchar(255)
+);
+
+
+Insert into tbl_logins (user_name, password)
+select "admin","admin";
+
+
+Insert into tbl_users (name, email, phone, is_doctor, specialisation)
+select   "humphrey","humphrey@greenclinic.com","0722000000",0,"";
+Insert into tbl_users (name, email, phone, is_doctor, specialisation)
+select "mugambi","mugambi@greenclinic.com","0722000001",0,"";
+Insert into tbl_users (name, email, phone, is_doctor, specialisation)
+select "alex","alex@greenclinic.com","0722000003",0,"";
+
+
+
+Insert into tbl_patient_information (first_name,middle_name,last_name,phone_no,email)
+select "Alex","m","Kiludu","0721001122","akiludu@gmail.com";
+
+Insert into tbl_patient_information (first_name,middle_name,last_name,phone_no,email)
+select "Miriam","k","Wachira","0721001123","mwachira@gmail.com";
+
+ 
+

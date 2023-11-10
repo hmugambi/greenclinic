@@ -198,6 +198,7 @@
             <li class="menu-item hidden"><a href="doctors" target="_blank">Doctor</a></li>
             <li class="menu-item hidden"><a href="appointment" target="_blank">Appointments</a></li>
             <li class="menu-item hidden"><a href="reports" target="_blank">Reports</a></li>
+            <li class="menu-item hidden"><a href="auth/logout" target="_blank">Log out</a></li>
            
         </ul>
     </div>
