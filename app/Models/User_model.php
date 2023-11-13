@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class User_model extends Model
 {
     protected $table = 'tbl_logins'; 
-     protected $allowedFields = ['user_name', 'password', 'user_id' , 'active' ];
+     protected $allowedFields = ['user_name', 'password', 'user_id' , 'active' , 'phone_no' , 'email'];
 
     public function validate_user($username, $password) {
         // Query the database to validate user credentials

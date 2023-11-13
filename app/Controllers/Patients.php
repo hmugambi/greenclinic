@@ -29,10 +29,10 @@ class Patients extends BaseController
         if (empty($data['patient_details'])) {
             throw new PageNotFoundException('Cannot find the patient item: ' . $id);
         }
-        $data['title'] = $data['patient_details']['first_name'];
+        $data['title'] = "Patient Details"; #$data['patient_details']['first_name'];
 
         return view('templates/header', $data)
-            . view('patients/view')
+            . view('patients/view') 
             . view('templates/footer');
             
     }
@@ -42,7 +42,7 @@ class Patients extends BaseController
     {
         helper('form');
 
-        return view('templates/header', ['title' => 'Create a news item'])
+        return view('templates/header', ['title' => 'Create Patient Record'])
             . view('patients/create')
             . view('templates/footer');
     }
@@ -57,7 +57,8 @@ class Patients extends BaseController
             'middle_name'  => 'max_length[5000]',
             'last_name'  => 'required|max_length[5000]|min_length[3]',
             'phone_no'  => 'required|max_length[5000]|min_length[3]',
-            'email'  => 'required|max_length[5000]|min_length[3]',
+            'email'  => 'required|valid_email', 
+            'dateOfBirth'  => 'required',
         ])) {
             // The validation fails, so returns the form.
             return $this->new();
@@ -74,11 +75,15 @@ class Patients extends BaseController
             'last_name' => $post['last_name'],
             'phone_no' => $post['phone_no'],
             'email' => $post['email'],
+            'date_of_birth' =>$post['dateOfBirth']
         ]);
 
+        return redirect()->back()->with('success','User added successfully');
+    /*
         return view('templates/header', ['title' => 'Create a news item'])
-            . view('patients')
+            . view('patients/create')
             . view('templates/footer');
+    */
     }
 
 
