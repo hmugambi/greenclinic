@@ -32,7 +32,9 @@ create table tbl_users(
 	email varchar(50),
 	phone varchar(20),
 	is_doctor int,
-	specialisation varchar(255)
+	specialisation varchar(255),
+	user_name varchar(255) NOT NULL,
+	password varchar(255) NOT NULL 
 );
 
 create table tbl_patient_information(
@@ -55,9 +57,22 @@ create table tbl_appointment(
 	doctor_notes varchar(255)
 );
 
-
-Insert into tbl_logins (user_name, password)
-select "admin","admin";
+create or replace view vw_appointment as 
+select 
+	tbl_appointment.id, 
+	tbl_appointment.appointment_date_time,
+	tbl_appointment.doctor_notes,
+	tbl_users.name as doctorName,
+	tbl_users.id as doctorId,
+	CONCAT (tbl_patient_information.first_name," ", tbl_patient_information.middle_name," ", tbl_patient_information.last_name) as patientName,
+	tbl_patient_information.date_of_birth,
+	tbl_patient_information.phone_no,
+	tbl_patient_information.email,
+	tbl_patient_information.id as patientId
+	
+  from  tbl_appointment left join tbl_users on tbl_appointment.doctor_id=tbl_users.id 
+left join tbl_patient_information on  tbl_appointment.patient_id=tbl_patient_information.id;
+ 
 
 
 Insert into tbl_users (name, email, phone, is_doctor, specialisation)
@@ -67,13 +82,15 @@ select "mugambi","mugambi@greenclinic.com","0722000001",0,"";
 Insert into tbl_users (name, email, phone, is_doctor, specialisation)
 select "alex","alex@greenclinic.com","0722000003",0,"";
 
+Insert into tbl_logins (user_name, password, user_id, active )
+select "admin","admin",1,0 ;
+Insert into tbl_logins (user_name, password, user_id, active )
+select "reception","reception",2,0 ;
+
+  
 
 
-Insert into tbl_patient_information (first_name,middle_name,last_name,phone_no,email)
-select "Alex","m","Kiludu","0721001122","akiludu@gmail.com";
-
-Insert into tbl_patient_information (first_name,middle_name,last_name,phone_no,email)
-select "Miriam","k","Wachira","0721001123","mwachira@gmail.com";
 
  
+
 

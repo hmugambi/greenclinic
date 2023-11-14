@@ -10,7 +10,7 @@ To run the application,
 4. Install mysql database as well, or configure one that came with the XAMP.
 5. Do run the scripts on this reporitory named 'database_script.txt'.
 6. Configure the database details to the file name .env database section. Do replace the details accordingly.
-7. Once all the configuration have been finalised. Do login using with default username/password as admin/admin.
+7. Once all the configuration have been finalised. Do signup then use the sign up details to login.
 8. After successful login, do navigate according as per the description on the assigniment.
 
 
